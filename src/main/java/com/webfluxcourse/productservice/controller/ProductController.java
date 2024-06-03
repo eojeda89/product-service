@@ -19,6 +19,11 @@ public class ProductController {
         return productService.getAll();
     }
 
+    @GetMapping
+    public Flux<String> get() {
+        return Flux.just("Hello");
+    }
+
     @GetMapping("{id}")
     public Mono<ResponseEntity<ProductDto>> getById(@PathVariable String id) {
         return productService.getById(id)
